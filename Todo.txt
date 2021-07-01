@@ -1,0 +1,9 @@
+- Revise UCF-Footer.scss
+- Revise UCF-Footer-common.php
+- Revise UCF-Footer-config.php
+- Revise UCF-Footer-Feed.php
+- Rewrite readme.md
+- Add watch to gulpfile
+
+- Redo CSS to mirror shared FS
+- Redo PHP to mirror shared FS
