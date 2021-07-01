@@ -7,7 +7,7 @@ if ( !defined( 'WP_UNINSTALL_PLUGIN' ) ) {
 }
 
 
-require_once 'includes/ucf-footer-config.php';
+require_once 'includes/fs-footer-config.php';
 
 // Delete options
-UCF_Footer_Config::delete_options();
+FS_FOOTER_Config::delete_options();

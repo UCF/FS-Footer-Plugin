@@ -3,12 +3,12 @@
  * Handles all feed related code.
  **/
 
-if ( ! class_exists( 'UCF_Footer_Feed' ) ) {
-	class UCF_Footer_Feed {
+if ( ! class_exists( 'FS_FOOTER_Feed' ) ) {
+	class FS_FOOTER_Feed {
 		public static function get_remote_menu( $option_name ) {
 			global $wp_customize;
 			$customizing    = isset( $wp_customize );
-			$feed_url       = UCF_Footer_Config::get_option_or_default( $option_name );
+			$feed_url       = FS_FOOTER_Config::get_option_or_default( $option_name );
 			$transient_name = $option_name . '_json';
 			$result         = get_transient( $transient_name );
 

@@ -3,11 +3,11 @@
  * Handles plugin configuration
  */
 
-if ( !class_exists( 'UCF_Footer_Config' ) ) {
+if ( !class_exists( 'FS_FOOTER_Config' ) ) {
 
-	class UCF_Footer_Config {
+	class FS_FOOTER_Config {
 		public static
-			$option_prefix = 'ucf_footer_',
+			$option_prefix = 'FS_FOOTER_',
 			$option_defaults = array(
 				'include_css'     => true,
 				'social_menu_url' => 'https://www.ucf.edu/wp-json/ucf-rest-menus/v1/menus/26',
@@ -135,25 +135,25 @@ if ( !class_exists( 'UCF_Footer_Config' ) ) {
 		 **/
 		public static function settings_init() {
 			// Register settings
-			register_setting( 'ucf_footer', self::$option_prefix . 'include_css' );
-			register_setting( 'ucf_footer', self::$option_prefix . 'social_menu_url' );
-			register_setting( 'ucf_footer', self::$option_prefix . 'nav_menu_url' );
+			register_setting( 'FS_FOOTER', self::$option_prefix . 'include_css' );
+			register_setting( 'FS_FOOTER', self::$option_prefix . 'social_menu_url' );
+			register_setting( 'FS_FOOTER', self::$option_prefix . 'nav_menu_url' );
 
 			// Register setting sections
 			add_settings_section(
-				'ucf_footer_section_general', // option section slug
+				'FS_FOOTER_section_general', // option section slug
 				'General Settings', // formatted title
 				'', // callback that echoes any content at the top of the section
-				'ucf_footer' // settings page slug
+				'FS_FOOTER' // settings page slug
 			);
 
 			// Register fields
 			add_settings_field(
 				self::$option_prefix . 'include_css',
 				'Include Default CSS',  // formatted field title
-				array( 'UCF_Footer_Config', 'display_settings_field' ),  // display callback
-				'ucf_footer',  // settings page slug
-				'ucf_footer_section_general',  // option section slug
+				array( 'FS_FOOTER_Config', 'display_settings_field' ),  // display callback
+				'FS_FOOTER',  // settings page slug
+				'FS_FOOTER_section_general',  // option section slug
 				array(  // extra arguments to pass to the callback function
 					'label_for'   => self::$option_prefix . 'include_css',
 					'description' => 'Register the stylesheet for the UCF footer styles in the document head for this theme.<br>Leave this checkbox checked unless your theme contains a copy of the footer styles in its stylesheet.',
@@ -163,9 +163,9 @@ if ( !class_exists( 'UCF_Footer_Config' ) ) {
 			add_settings_field(
 				self::$option_prefix . 'social_menu_url',
 				'Social Link Menu Feed URL',  // formatted field title
-				array( 'UCF_Footer_Config', 'display_settings_field' ),  // display callback
-				'ucf_footer',  // settings page slug
-				'ucf_footer_section_general',  // option section slug
+				array( 'FS_FOOTER_Config', 'display_settings_field' ),  // display callback
+				'FS_FOOTER',  // settings page slug
+				'FS_FOOTER_section_general',  // option section slug
 				array(  // extra arguments to pass to the callback function
 					'label_for'   => self::$option_prefix . 'social_menu_url',
 					'description' => 'URL to the WP Rest API representation of the ucf.edu social link menu.',
@@ -175,9 +175,9 @@ if ( !class_exists( 'UCF_Footer_Config' ) ) {
 			add_settings_field(
 				self::$option_prefix . 'nav_menu_url',
 				'Footer Navigation Menu Feed URL',  // formatted field title
-				array( 'UCF_Footer_Config', 'display_settings_field' ),  // display callback
-				'ucf_footer',  // settings page slug
-				'ucf_footer_section_general',  // option section slug
+				array( 'FS_FOOTER_Config', 'display_settings_field' ),  // display callback
+				'FS_FOOTER',  // settings page slug
+				'FS_FOOTER_section_general',  // option section slug
 				array(  // extra arguments to pass to the callback function
 					'label_for'   => self::$option_prefix . 'nav_menu_url',
 					'description' => 'URL to the WP Rest API representation of the ucf.edu footer navigation menu.',
@@ -234,8 +234,8 @@ if ( !class_exists( 'UCF_Footer_Config' ) ) {
 			$page_title = 'UCF Footer Settings';
 			$menu_title = 'UCF Footer';
 			$capability = 'manage_options';
-			$menu_slug  = 'ucf_footer';
-			$callback   = array( 'UCF_Footer_Config', 'options_page_html' );
+			$menu_slug  = 'FS_FOOTER';
+			$callback   = array( 'FS_FOOTER_Config', 'options_page_html' );
 
 			return add_options_page(
 				$page_title,
@@ -258,8 +258,8 @@ if ( !class_exists( 'UCF_Footer_Config' ) ) {
 			<h1><?php echo get_admin_page_title(); ?></h1>
 			<form method="post" action="options.php">
 				<?php
-				settings_fields( 'ucf_footer' );
-				do_settings_sections( 'ucf_footer' );
+				settings_fields( 'FS_FOOTER' );
+				do_settings_sections( 'FS_FOOTER' );
 				submit_button();
 				?>
 			</form>
@@ -271,7 +271,7 @@ if ( !class_exists( 'UCF_Footer_Config' ) ) {
 
 	}
 
-	add_action( 'admin_init', array( 'UCF_Footer_Config', 'settings_init' ) );
-	add_action( 'admin_menu', array( 'UCF_Footer_Config', 'add_options_page' ) );
+	add_action( 'admin_init', array( 'FS_FOOTER_Config', 'settings_init' ) );
+	add_action( 'admin_menu', array( 'FS_FOOTER_Config', 'add_options_page' ) );
 
 }

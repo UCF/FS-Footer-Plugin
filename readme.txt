@@ -1,14 +1,14 @@
-=== UCF Footer Plugin ===
-Contributors: ucfwebcom
-Tags: ucf, footer, template
+=== UCF Facilities & Safety Footer Plugin ===
+Contributors: Mike Setzer, ucfwebcom
+Tags: ucf, footer, template, facilities, safety, business, services
 Requires at least: 4.9.6
-Tested up to: 5.3
+Tested up to: 5.7.2
 Stable tag: 1.0.8
 Requires PHP: 5.4
 License: GPLv3 or later
 License URI: http://www.gnu.org/copyleft/gpl-3.0.html
 
-Provides styles and functionality for displaying a consistent branded footer bar for UCF sites.
+Provides styles and functionality for displaying a consistent branded footer bar for UCF Facilities and Safety sites.
 
 
 == Installation ==
@@ -16,11 +16,11 @@ Provides styles and functionality for displaying a consistent branded footer bar
 = Manual Installation =
 1. Upload the plugin files (unzipped) to the `/wp-content/plugins` directory, or install the plugin through the WordPress plugins screen directly.
 2. Activate the plugin through the "Plugins" screen in WordPress
-3. Configure plugin settings from the WordPress admin under "Settings > UCF Footer".
+3. Configure plugin settings from the WordPress admin under "Settings > UCF FS Footer".
 
 = WP CLI Installation =
-1. `$ wp plugin install --activate https://github.com/UCF/UCF-Footer-Plugin/archive/master.zip`.  See [WP-CLI Docs](http://wp-cli.org/commands/plugin/install/) for more command options.
-2. Configure plugin settings from the WordPress admin under "Settings > UCF Footer".
+1. `$ wp plugin install --activate https://github.com/UCF/FS-Footer-Plugin/archive/master.zip`.  See [WP-CLI Docs](http://wp-cli.org/commands/plugin/install/) for more command options.
+2. Configure plugin settings from the WordPress admin under "Settings > UCF FS Footer".
 
 = Installation Requirements =
 * Ensure your activated theme calls `wp_footer()` immediately before the template's closing `<body>` tag.  `wp_footer()` should not be called from within any element with an explicit or max width (the UCF footer should span the full width of the page.)
@@ -60,13 +60,13 @@ Enhancements:
 
 = 1.0.3 =
 Bug Fixes:
-* Fixed warning due to missing argument in `apply_filters()` in `UCF_Footer_Common::display_footer()`
-* Updated methods in `UCF_Footer_Common` to be static
+* Fixed warning due to missing argument in `apply_filters()` in `FS_FOOTER_Common::display_footer()`
+* Updated methods in `FS_FOOTER_Common` to be static
 * Updated `.ucf-footer` to be a semantic footer element
 
 = 1.0.2 =
 Enhancements:
-* Added `ucf_footer_display_footer` filter which allows logic to be implemented for when to display the footer.
+* Added `FS_FOOTER_display_footer` filter which allows logic to be implemented for when to display the footer.
 
 = 1.0.1 =
 Bug Fixes:

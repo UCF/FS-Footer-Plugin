@@ -52,13 +52,13 @@ Enhancements:
 
 ### 1.0.3 ###
 Bug Fixes:
-* Fixed warning due to missing argument in `apply_filters()` in `UCF_Footer_Common::display_footer()`
-* Updated methods in `UCF_Footer_Common` to be static
+* Fixed warning due to missing argument in `apply_filters()` in `FS_FOOTER_Common::display_footer()`
+* Updated methods in `FS_FOOTER_Common` to be static
 * Updated `.ucf-footer` to be a semantic footer element
 
 ### 1.0.2 ###
 Enhancements:
-* Added `ucf_footer_display_footer` filter which allows logic to be implemented for when to display the footer.
+* Added `FS_FOOTER_display_footer` filter which allows logic to be implemented for when to display the footer.
 
 ### 1.0.1 ###
 Bug Fixes:

@@ -3,28 +3,28 @@
  * Place common functions here.
  **/
 
-if ( !class_exists( 'UCF_Footer_Common' ) ) {
+if ( !class_exists( 'FS_FOOTER_Common' ) ) {
 
-	class UCF_Footer_Common {
+	class FS_FOOTER_Common {
 		public static function enqueue_styles() {
-			$include_css = UCF_Footer_Config::get_option_or_default( 'include_css' );
+			$include_css = FS_FOOTER_Config::get_option_or_default( 'include_css' );
 
 			if ( $include_css ) {
-				$plugin_data   = get_plugin_data( UCF_FOOTER__PLUGIN_FILE, false, false );
+				$plugin_data   = get_plugin_data( FS_FOOTER__PLUGIN_FILE, false, false );
 				$version       = $plugin_data['Version'];
-				wp_enqueue_style( 'ucf_footer_css', plugins_url( 'static/css/ucf-footer.min.css', UCF_FOOTER__PLUGIN_FILE ), false, $version, 'all' );
+				wp_enqueue_style( 'FS_FOOTER_css', plugins_url( 'static/css/ucf-footer.min.css', FS_FOOTER__PLUGIN_FILE ), false, $version, 'all' );
 			}
 		}
 
 		public static function async_load_styles( $html, $handle, $href, $media ) {
-			if ( $handle === 'ucf_footer_css' ) {
+			if ( $handle === 'FS_FOOTER_css' ) {
 				$html = str_replace( 'media=\'' . $media . '\'', 'media=\'print\' onload=\'this.media="' . $media . '"\'', $html );
 			}
 			return $html;
 		}
 
 		public static function display_social_links() {
-			$menu = UCF_Footer_Feed::get_remote_menu( 'social_menu_url' );
+			$menu = FS_FOOTER_Feed::get_remote_menu( 'social_menu_url' );
 			if ( !$menu ) { return; }
 
 			ob_start();
@@ -43,7 +43,7 @@ if ( !class_exists( 'UCF_Footer_Common' ) ) {
 		}
 
 		public static function display_nav_links() {
-			$menu = UCF_Footer_Feed::get_remote_menu( 'nav_menu_url' );
+			$menu = FS_FOOTER_Feed::get_remote_menu( 'nav_menu_url' );
 			if ( !$menu ) { return; }
 
 			ob_start();
@@ -62,7 +62,7 @@ if ( !class_exists( 'UCF_Footer_Common' ) ) {
 		}
 
 		public static function display_footer() {
-			$display = apply_filters( 'ucf_footer_display_footer', true );
+			$display = apply_filters( 'FS_FOOTER_display_footer', true );
 			if ( $display ) :
 			ob_start();
 		?>
@@ -82,16 +82,16 @@ if ( !class_exists( 'UCF_Footer_Common' ) ) {
 		}
 	}
 
-	add_action( 'wp_enqueue_scripts', array( 'UCF_Footer_Common', 'enqueue_styles' ), 99 );
-	add_action( 'style_loader_tag', array( 'UCF_Footer_Common', 'async_load_styles' ), 99, 4 );
-	add_action( 'wp_footer', array( 'UCF_Footer_Common', 'display_footer' ) );
+	add_action( 'wp_enqueue_scripts', array( 'FS_FOOTER_Common', 'enqueue_styles' ), 99 );
+	add_action( 'style_loader_tag', array( 'FS_FOOTER_Common', 'async_load_styles' ), 99, 4 );
+	add_action( 'wp_footer', array( 'FS_FOOTER_Common', 'display_footer' ) );
 
 }
 
-if ( ! function_exists( 'ucf_footer_display_footer' ) ) {
-	function ucf_footer_display_footer() {
+if ( ! function_exists( 'FS_FOOTER_display_footer' ) ) {
+	function FS_FOOTER_display_footer() {
 		return true;
 	}
 
-	add_filter( 'ucf_footer_display_footer', 'ucf_footer_display_footer' );
+	add_filter( 'FS_FOOTER_display_footer', 'FS_FOOTER_display_footer' );
 }
